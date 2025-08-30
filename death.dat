@@ -1,0 +1,13 @@
+# Rank Causes of death Counts %  of top 10s % of total deaths
+rank cause counts pcttop10 pcttot
+1 "Heart disease"  700142  37%  29%
+2 "Cancer"  553768  29%  23%
+3 "Cerebrovascular"  163538  9%  7%
+4 "Chronic respiratory"  123013  6%  5%
+5 "Accidents"  101537  5%  4%
+6 "Diabetes mellitus"  71372  4%  3%
+7 "Flu and pneumonia"  62034  3%  3%
+8 "Alzheimer's disease"  53852  3%  2%
+9 "Kidney disorders"  39480  2%  2%
+10 "Septicemia" 32238 2% 1%
+
