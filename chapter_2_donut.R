@@ -1,5 +1,8 @@
-## Create a vector for the donut data set, then create frequency tables,
-## bar graph, proportion tables, and a Pareto chart
+## Create a vector for the donut data set, then create frequency tables, bar
+## graph, proportion tables, and a Pareto chart. We observe that the variable
+## donut is a qualitative variable, and in R we will 'cast' it so that R
+## recognizes that it is qualitative and not numeric using the factor()
+## function.
 
 donut <- c("glazed", "filled", "other", "plain", "glazed", "other", 
            "frosted", "filled", "filled", "glazed", "other", 
