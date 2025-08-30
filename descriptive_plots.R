@@ -66,7 +66,7 @@ summary(xtabs(Freq ~ Gender + Admit, DF))
 ## -----------------------------------------------------------------------------
 #| label:  histexample
 #| echo: true
-revenue <- scan("https://jeffreyracine.github.io/2J03/revenue.dat")
+revenue <- scan("https://jeffreyracine.github.io/2J03/Data/revenue.dat")
 ## Plot the absolute frequency histogram
 hist(revenue,xlab="Net Revenue Classes",ylab="Absolute Frequency",main="",br=9)
 
@@ -75,7 +75,7 @@ hist(revenue,xlab="Net Revenue Classes",ylab="Absolute Frequency",main="",br=9)
 #| label: histpolyexample
 #| echo: true
 ## Plot the absolute frequency histogram and frequency polygon
-revenue <- scan("https://jeffreyracine.github.io/2J03/revenue.dat")
+revenue <- scan("https://jeffreyracine.github.io/2J03/Data/revenue.dat")
 hist(revenue,xlab="Net Revenue Classes",ylab="Absolute Frequency",main="",br=9)
 revenue.hist <- hist(revenue,br=9,plot=FALSE)
 lines(revenue.hist$mids,revenue.hist$counts,type="b")
@@ -84,7 +84,7 @@ lines(revenue.hist$mids,revenue.hist$counts,type="b")
 ## -----------------------------------------------------------------------------
 #| label: histpolydensityexample
 #| echo: true
-revenue <- scan("https://jeffreyracine.github.io/2J03/revenue.dat")
+revenue <- scan("https://jeffreyracine.github.io/2J03/Data/revenue.dat")
 ## Plot the relative frequency histogram adjusted so that area equals 1 (prob=TRUE)
 hist(revenue,xlab="Net Revenue Classes",ylim=c(0,.009),ylab="Density",main="",br=9,prob=TRUE)
 lines(density(revenue))
@@ -93,7 +93,7 @@ lines(density(revenue))
 ## -----------------------------------------------------------------------------
 #| label: cumsurvexample
 #| echo: true
-revenue <- scan("https://jeffreyracine.github.io/2J03/revenue.dat")
+revenue <- scan("https://jeffreyracine.github.io/2J03/Data/revenue.dat")
 ## Construct the cumulative and survivor functions
 cum.abs <- cumsum(revenue.hist$counts)
 ## Plot the cumulative and survivor functions
@@ -105,7 +105,7 @@ plot(revenue.hist$breaks[1:8],100-cum.abs,t="s",xlab="Net Revenue Classes",ylab=
 ## -----------------------------------------------------------------------------
 #| label: growthexample
 #| echo: true
-growthdata <- read.table("https://jeffreyracine.github.io/2J03/growth.dat",header=TRUE)
+growthdata <- read.table("https://jeffreyracine.github.io/2J03/Data/growth.dat",header=TRUE)
 attach(growthdata)
 ## Create a scatterplot
 plot(age/12,height,xlab="Age (Years)",ylab="Height (cm)",type="p",cex=.25)
@@ -113,7 +113,7 @@ plot(age/12,height,xlab="Age (Years)",ylab="Height (cm)",type="p",cex=.25)
 
 ## ----deathdata----------------------------------------------------------------
 ## Read in the cause of death data
-deathdat <- read.table("https://jeffreyracine.github.io/2J03/death.dat",header=TRUE)
+deathdat <- read.table("https://jeffreyracine.github.io/2J03/Data/death.dat",header=TRUE)
 attach(deathdat)
 knitr::kable(deathdat,
              align = c("l","l","r","r","r"),
@@ -124,7 +124,7 @@ knitr::kable(deathdat,
 #| label: deathbarplot
 #| echo: true
 ## Create a barplot
-deathdat <- read.table("https://jeffreyracine.github.io/2J03/death.dat",header=TRUE)
+deathdat <- read.table("https://jeffreyracine.github.io/2J03/Data/death.dat",header=TRUE)
 attach(deathdat)
 barplot(counts/1000,names.arg=cause,main="Top 10 Causes of Death in the US, 2001",ylab="Counts (x1000)",cex.names=0.5,las=2)
 
@@ -133,7 +133,7 @@ barplot(counts/1000,names.arg=cause,main="Top 10 Causes of Death in the US, 2001
 #| label:  deathpieplot
 #| echo: true
 ## Create a pie chart
-deathdat <- read.table("https://jeffreyracine.github.io/2J03/death.dat",header=TRUE)
+deathdat <- read.table("https://jeffreyracine.github.io/2J03/Data/death.dat",header=TRUE)
 attach(deathdat)
 pie(counts,labels=cause,cex=0.75)
 
@@ -258,7 +258,7 @@ quantile(x,seq(0,1,by=.25),type=2)
 
 ## ----boxplotcode,echo=TRUE----------------------------------------------------
 ## Read in the S&P100 data closing values, then generate a boxplot
-Close <- read.table("https://jeffreyracine.github.io/2J03/sp100.dat",header=TRUE,sep=",")$Close
+Close <- read.table("https://jeffreyracine.github.io/2J03/Data/sp100.dat",header=TRUE,sep=",")$Close
 boxplot(Close,ylab="Standard and Poor's 100 Close (1982-2009)",notch=TRUE)
 
 
