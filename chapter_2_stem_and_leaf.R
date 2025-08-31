@@ -1,18 +1,18 @@
+## The following are the scores of 30 college students on a statistics test:
 ## This is a simple R script containing the data and creating a stem-and-leaf
 ## plot from it. Note that the option atom=10 in the function stem() is used to
 ## specify the stem width of 10, which means that the stems will represent the
-## tens place of the ages, and the leaves will represent the units
+## tens place of the scores, and the leaves will represent the units. One
+## advantage of a stem-and-leaf display is that we do not lose information on
+## individual observations.
 
-Age <- c(21, 19, 24, 25, 29, 34, 26, 27, 37, 33, 18, 20, 19, 22, 
-         19, 19, 25, 22, 25, 23, 25, 19, 31, 19, 23, 18, 23, 19, 
-         23, 26, 22, 28, 21, 20, 22, 22, 21, 20, 19, 21, 25, 23, 
-         18, 37, 27, 23, 21, 25, 21, 24)
+scores <- c(75,69,83,52,72,84,80,81,77,96,61,64,65,76,71,79,
+            86,87,71,79,72,87,68,92,93,50,57,95,92,98)
 
 ## Print the raw data to the screen. 
 
-print(Age)
+print(scores)
 
-## The stem and leaf plot. Option scale=1 is the default, you can play around to
-## see its effect.
+## The stem and leaf plot.
 
-stem(Age,atom=10,scale=.3)
+stem(scores,atom=10)
