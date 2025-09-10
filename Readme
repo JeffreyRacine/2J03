@@ -11,5 +11,5 @@ Note: Either a) download the R file and open it in RStudio (it will be
 opened in the editor where you can 'run' or 'source'), OR b) start a
 new R script in the editor (from the menu File -> New File -> R
 Script) THEN copy the code from GitHub directly into the editor and
-save the file (will intitially be named 'Untitled.R') so something
-more appropriate.
+save the file (will intitially be named 'Untitled.R') to something
+with a more helpful name.
