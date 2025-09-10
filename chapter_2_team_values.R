@@ -26,6 +26,26 @@ hist(values, breaks=breaks, main="MLB Team Values",
 values.hist <- hist(values,breaks=breaks,plot=FALSE)
 lines(values.hist$mids,values.hist$counts,type="b")
 
+## To create a histogram in R using hist() with the vertical axis representing
+## percentages instead of frequencies, you need to calculate the density values
+## and then plot the histogram with freq = FALSE.
+
+## Calculate histogram information without plotting.
+
+hist_info <- hist(values, breaks=breaks, plot = FALSE)
+
+## Calculate percentages for each bin. Divide the counts in each bin by the
+## total number of observations and multiply by 100 to get percentages.
+
+hist_info$density <- hist_info$counts / sum(hist_info$counts) * 100
+
+## Plot the histogram with percentages. Use plot() on the modified hist_info
+## object and set freq = FALSE. This tells R to use the density values (which
+## you've converted to percentages) for the y-axis. You can also customize the
+## y-axis label.
+
+plot(hist_info, freq = FALSE, main="MLB Team Values", ylab = "Percentage")
+
 ## Construct and plot the Cumulative Frequencies
 
 cum.abs <- cumsum(values.hist$counts)
