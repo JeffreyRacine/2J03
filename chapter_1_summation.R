@@ -34,13 +34,14 @@ sum(salaries)
 
 sum(salaries^2)
 
+## The lists four pairs of m and  f values:
 ## m1 = 12, m2 = 15, m3 = 20, m4 = 30
 ## f1 = 5, f2 = 9, f3 = 10, f4 = 16
 
 m <- c(12, 15, 20, 30)
 f <- c(5, 9, 10, 16)
 
-## Compute the following: (a) Σm   (b) Σf²    (c) Σmf    (d) Σm²f
+## Compute the following: (a) Σm (b) Σf² (c) Σmf (d) Σm²f
 
 ## (a) Σm
 
