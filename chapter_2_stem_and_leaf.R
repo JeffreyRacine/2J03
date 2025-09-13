@@ -13,6 +13,6 @@ scores <- c(75,69,83,52,72,84,80,81,77,96,61,64,65,76,71,79,
 
 print(scores)
 
-## The stem and leaf plot.
+## The stem and leaf plot. By default stem() is ranked in ascending order.
 
 stem(scores,atom=10)
