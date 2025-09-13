@@ -14,6 +14,20 @@ values <- c(840, 1150, 1000, 2100, 1800, 975, 885, 825, 855, 1125, 800, 700,
 
 breaks <- seq(601, 3300, length=7)
 
+## Create an Absolute Frequency Table
+
+table(cut(values,breaks=breaks,dig.lab=4,right=FALSE))
+
+## Create a Relative Frequency Table
+
+table(cut(values,breaks=breaks,include.lowest=TRUE,
+          right=FALSE,dig.lab=4))/length(values)
+
+## Create a Percentage Frequency Table
+
+table(cut(values,breaks=breaks,include.lowest=TRUE,
+          right=FALSE,dig.lab=4))/length(values)*100
+
 ## Construct a Frequency Histogram
 
 hist(values, breaks=breaks, main="MLB Team Values", 
@@ -24,7 +38,8 @@ hist(values, breaks=breaks, main="MLB Team Values",
 ## mid-points from the hist() function then plotting them using lines()
 
 values.hist <- hist(values,breaks=breaks,plot=FALSE)
-lines(values.hist$mids,values.hist$counts,type="b")
+lines(values.hist$mids,values.hist$counts,type="b",pch=19,col="blue")
+legend("topright",legend="Frequency Polygon",col="blue",pch=19,bty="n")
 
 ## To create a histogram in R using hist() with the vertical axis representing
 ## percentages instead of frequencies, you need to calculate the density values
@@ -45,6 +60,20 @@ hist_info$density <- hist_info$counts / sum(hist_info$counts) * 100
 ## y-axis label.
 
 plot(hist_info, freq = FALSE, main="MLB Team Values", ylab = "Percentage")
+
+## Construct a Cumulative Frequency Table
+
+cumsum(table(cut(values,breaks=breaks,dig.lab=4,right=FALSE)))
+
+## Construct a Cumulative Relative Frequency Table
+
+cumsum(table(cut(values,breaks=breaks,include.lowest=TRUE,
+                 right=FALSE,dig.lab=4))/length(values))
+
+## Construct a Cumulative Percentage Frequency Table
+
+cumsum(table(cut(values,breaks=breaks,include.lowest=TRUE,
+                 right=FALSE,dig.lab=4))/length(values)*100)
 
 ## Construct and plot the Cumulative Frequencies
 
