@@ -52,12 +52,24 @@ lines(values.hist$mids,values.hist$counts,type="b",pch=19,col="blue")
 legend("topright",legend="Frequency Polygon",col="blue",pch=19,bty="n")
 
 ## To create a histogram in R using hist() with the vertical axis representing
-## percentages instead of frequencies, you need to calculate the density values
+## relative frequencies or percentages, you might calculate the density values
 ## and then plot the histogram with freq = FALSE.
 
 ## Calculate histogram information without plotting.
 
 hist_info <- hist(values, breaks=breaks, plot = FALSE)
+
+## Calculate relative frequencies for each bin. Divide the counts in each bin by
+## the total number of observations.
+
+hist_info$density <- hist_info$counts / sum(hist_info$counts)
+
+## Plot the histogram with relative frequencies. Use plot() on the modified
+## hist_info object and set freq = FALSE. This tells R to use the density values
+## (which you've converted to percentages) for the y-axis. You can also
+## customize the y-axis label.
+
+plot(hist_info, freq = FALSE, main="MLB Team Values", ylab = "Relative Frequency")
 
 ## Calculate percentages for each bin. Divide the counts in each bin by the
 ## total number of observations and multiply by 100 to get percentages.
@@ -85,12 +97,9 @@ cumsum(table(cut(values,breaks=breaks,include.lowest=TRUE,
 cumsum(table(cut(values,breaks=breaks,include.lowest=TRUE,
                  right=FALSE,dig.lab=4))/length(values)*100)
 
-## Construct and plot the Cumulative Frequencies
+## Construct Cumulative Frequencies
 
 cum.abs <- cumsum(values.hist$counts)
-plot(values.hist$breaks[1:6],cum.abs,t="s",
-     xlab="Value (in millions of dollars)",
-     ylab="Cumulative Absolute Frequency (LE)",main="")
 
 ## Construct the Relative and Cumulative Relative Frequencies
 
