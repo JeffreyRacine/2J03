@@ -28,6 +28,16 @@ table(cut(values,breaks=breaks,include.lowest=TRUE,
 table(cut(values,breaks=breaks,include.lowest=TRUE,
           right=FALSE,dig.lab=4))/length(values)*100
 
+## Create a table using all three frequencies
+
+freq.table <- cbind(table(cut(values,breaks=breaks,dig.lab=4,right=FALSE)),
+                    table(cut(values,breaks=breaks,include.lowest=TRUE,
+                              right=FALSE,dig.lab=4))/length(values),
+                    table(cut(values,breaks=breaks,include.lowest=TRUE,
+                              right=FALSE,dig.lab=4))/length(values)*100)
+colnames(freq.table) <- c("Frequency","Relative Frequency","Percentage Frequency")
+knitr::kable(freq.table,digits=2)
+
 ## Construct a Frequency Histogram
 
 hist(values, breaks=breaks, main="MLB Team Values", 
