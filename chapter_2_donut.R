@@ -44,3 +44,13 @@ barplot(table(donut),ylab="Frequency",xlab="Donut Variety",main="Bar Graph")
 donut.pareto <- reorder(donut,donut,FUN=length,decreasing=TRUE)
 
 barplot(table(donut.pareto),ylab="Frequency",xlab="Donut Variety",main="Pareto Chart")
+
+## Create a pie chart with percentages as labels
+
+slices <- table(donut)
+lbls <- paste(names(slices),"\n",slices,sep="")
+pct <- round(100*slices/sum(slices),1)
+lbls <- paste(lbls," (",pct,"%)",sep="")
+pie(slices,labels=lbls,col=rainbow(length(lbls)),
+    main="Pie Chart of Donut Varieties")
+legend("topright",names(slices),cex=0.8,fill=rainbow(length(lbls)))
