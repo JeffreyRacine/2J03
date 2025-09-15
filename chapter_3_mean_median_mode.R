@@ -140,3 +140,4 @@ var <- sum(f * (m - mu)^2) / N
 var
 sd <- sqrt(var)
 sd
+
