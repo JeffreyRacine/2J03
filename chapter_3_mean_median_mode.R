@@ -98,3 +98,45 @@ gallons <- c(10, 13, 8, 15)
 ## Compute a weighted mean of the prices, using the gallons as weights.
 
 weighted.mean(price, gallons)
+
+## Consider the compensation of 11 female CEOs of US companies in millions of
+## dollars for 2014.
+
+compensation <- c(19.3, 16.2, 19.6, 19.3, 33.7, 21.0, 22.5, 16.9, 28.7, 42.1, 22.2)
+
+## Find the (sample) variance and standard deviation for these data.
+
+var(compensation)
+sd(compensation)
+
+## Following are the 2015 earnings (in thousands of dollars) 
+## before taxes for all six employees of a small company.
+
+earnings <- c(88.50, 108.40, 65.50, 52.50, 79.80, 54.60)
+
+## Find the (population) variance and standard deviation for these data. Since
+## var() and sd() are the sample versions, we need to adjust them to get the
+## population versions. To do this we multiply the sample variance by (n-1)/n,
+## where n is the number of observations, and we multiply the sample standard
+## deviation by sqrt((n-1)/n).
+
+var(earnings) * (5/6)
+sd(earnings) * sqrt(5/6)
+
+## Table 3.8 gives the frequency distribution of the daily commuting times (in
+## minutes) from home to work for all 25 employees of a company. Calculate the
+## population mean of the daily commuting times for this grouped data.
+
+f <- c(4, 9, 6, 4, 2)
+m <- c(5, 15, 25, 35, 45)
+
+N <- sum(f)
+mu <- sum(f * m) / N
+mu
+
+## Compute the variance and standard deviation for this grouped data.
+
+var <- sum(f * (m - mu)^2) / N
+var
+sd <- sqrt(var)
+sd
