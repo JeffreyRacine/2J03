@@ -128,6 +128,8 @@ colnames(team.value.table) <- c("Class Limits",
                                 "Relative Frequency",
                                 "Cumulative Frequency",
                                 "Cumulative Relative Frequency")
-
+## You can generate this file as a nicely formatted table using the knitr
+## package (an optional add-on) which you must first install and load using the
+## command install.packages("knitr").
 knitr::kable(team.value.table,digits=2)
 
