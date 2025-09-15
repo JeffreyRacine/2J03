@@ -108,8 +108,8 @@ cum.rel <- cumsum(rel.freq)
 
 ## Create a table with class limits in column 1, the Frequencies in column 2,
 ## the Relative Frequencies in column 3, the Cumulative Frequencies in column 4,
-## and the Cumulative Relative Rrequencies in column 5. If you wanted
-## percentages you mulitply all relative frequencies by 100.
+## and the Cumulative Relative Frequencies in column 5. If you wanted
+## percentages you multiply all relative frequencies by 100.
 
 ## Note that to create the classes for our table, we can use some R wizardry
 ## with the cut() function...
