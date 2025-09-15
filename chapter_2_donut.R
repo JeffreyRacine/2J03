@@ -16,17 +16,27 @@ donut <- c("glazed", "filled", "other", "plain", "glazed", "other",
 
 donut <- factor(donut,levels=c("glazed","filled","frosted","plain","other"))
 
-## Frequency table
+## Frequency Table
 
 table(donut)
+
+## Create a Relative Frequency Table
+
+round(prop.table(table(donut)),3)
+
+## Create a Percentage Table
+
+round(100*prop.table(table(donut)),1)
+
+## Combine the Frequency, Relative Frequency, and Percentage Tables
+
+cbind(Frequency=table(donut),
+      Relative_Frequency=round(prop.table(table(donut)),3),
+      Percentage=round(100*prop.table(table(donut)),1))
 
 ## Bar graph 
 
 barplot(table(donut),ylab="Frequency",xlab="Donut Variety",main="Bar Graph")
-
-## Proportion table
-
-prop.table(table(donut))
 
 ## Pareto chart - here we reorder the factor levels by frequency in decreasing
 ## order and store them in a new variable
