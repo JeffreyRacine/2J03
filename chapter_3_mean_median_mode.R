@@ -3,7 +3,7 @@
 
 profits <- c(37037, 18249, 11431, 32580, 5346, 13057, 5113, 5385, 16483, 16022)
 
-## Compute the sample mean profit
+## Compute the sample mean of profits.
 
 mean(profits)
 
@@ -26,7 +26,8 @@ mean(ages)
   
 prices <- c(245670, 176200, 360280, 272440, 450394, 310160, 393610, 3874480)
 
-## Compute the mean price with the outlier and with the corrected value.
+## Compute the mean price with the outlier and with the corrected value (here we
+## use all the data for both computations).
 
 mean(prices)
 
@@ -50,9 +51,9 @@ median(prices.corrected)
 
 speeds <- c(77, 82, 74, 81, 79, 84, 74, 78)
 
-## Since there is no mode() function in R, we can use the table() function to 
-## create a frequency table, and then use the which.max() function to find the
-## value with the highest frequency.
+## Since there is no mode() function in R, GitHub Copilot suggests that we can
+## use the table() function to create a frequency table, and then use the
+## which.max() function to find the value with the highest frequency.
 
 table(speeds)
 speeds.freq <- table(speeds)
@@ -66,7 +67,7 @@ speeds.mode
 
 commute <- c(23, 36, 14, 23, 47, 32, 8, 14, 26, 31, 18, 28)
 
-## Compute the mode
+## Compute the mode using the suggestion from GitHub Copilot.
 
 commute.freq <- table(commute)
 commute.freq
@@ -74,7 +75,8 @@ commute.mode <- as.numeric(names(commute.freq)[which.max(commute.freq)])
 commute.mode
 
 ## This is wrong! But we can write a function in R that computes the mode
-## properly when there exists > 1 mode.
+## properly when there exists > 1 mode. We can then manually verify whether it
+## works or not.
 
 getmode <- function(v) {
   uniqv <- unique(v)
