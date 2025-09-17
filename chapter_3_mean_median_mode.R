@@ -18,6 +18,19 @@ ages <- c(53, 32, 61, 27, 39, 44, 49, 57)
 
 mean(ages)
 
+## Consider computing a weighted mean. Laura bought gas for her car four times
+## during June 2018. She bought 10 gallons at a price of $2.60 a gallon, 13
+## gallons at a price of $2.80 a gallon, 8 gallons at a price of $2.70 a gallon,
+## and 15 gallons at a price of $2.75 a gallon. What is the average price that
+## Laura paid for gas during June 2018?
+
+price <- c(2.60, 2.80, 2.70, 2.75)
+gallons <- c(10, 13, 8, 15)
+
+## Compute a weighted mean of the prices, using the gallons as weights.
+
+weighted.mean(price, gallons)
+
 ## The following are the list prices of eight homes randomly selected from all
 ## homes for sale in a city. Note that the first seven prices lie between
 ## 175,000 and 400,000, while the last is an order of magnitude larger (10x).
@@ -87,19 +100,6 @@ getmode <- function(v) {
 
 commute.mode <- getmode(commute)
 commute.mode
-
-## Laura bought gas for her car four times during June 2018. She bought 10
-## gallons at a price of $2.60 a gallon, 13 gallons at a price of $2.80 a
-## gallon, 8 gallons at a price of $2.70 a gallon, and 15 gallons at a price of
-## $2.75 a gallon. What is the average price that Laura paid for gas during June
-## 2018? 
-
-price <- c(2.60, 2.80, 2.70, 2.75)
-gallons <- c(10, 13, 8, 15)
-
-## Compute a weighted mean of the prices, using the gallons as weights.
-
-weighted.mean(price, gallons)
 
 ## Consider the compensation of 11 female CEOs of US companies in millions of
 ## dollars for 2014.
