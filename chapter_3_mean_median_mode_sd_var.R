@@ -111,6 +111,15 @@ compensation <- c(19.3, 16.2, 19.6, 19.3, 33.7, 21.0, 22.5, 16.9, 28.7, 42.1, 22
 var(compensation)
 sd(compensation)
 
+## Use the formulas that, when done manually, can save some calculations
+
+x <- compensation
+n <- length(x)
+## Sample variance
+(sum(x^2)-sum(x)^2/n)/(n-1)
+## Sample standard deviation
+sqrt((sum(x^2)-sum(x)^2/n)/(n-1))
+
 ## Following are the 2015 earnings (in thousands of dollars) 
 ## before taxes for all six employees of a small company.
 
@@ -124,6 +133,15 @@ earnings <- c(88.50, 108.40, 65.50, 52.50, 79.80, 54.60)
 
 var(earnings) * (5/6)
 sd(earnings) * sqrt(5/6)
+
+## Use the formulas that, when done manually, can save some calculations
+
+x <- earnings
+N <- length(x)
+## Population variance
+(sum(x^2)-sum(x)^2/N)/N
+## Population standard deviation
+sqrt((sum(x^2)-sum(x)^2/N)/N)
 
 ## Table 3.8 gives the frequency distribution of the daily commuting times (in
 ## minutes) from home to work for all 25 employees of a company. Calculate the
