@@ -34,3 +34,5 @@ p_x
 
 p_x <- dbinom(x, size = n, prob = pi)
 p_x
+
+## Confirm with tables that will be used in the upcoming exams.
