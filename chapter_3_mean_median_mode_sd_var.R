@@ -162,10 +162,46 @@ N <- sum(f)
 mu <- sum(f * m) / N
 mu
 
-## Compute the variance and standard deviation for this grouped data.
+## Compute the population variance and standard deviation for this grouped data.
 
 var <- sum(f * (m - mu)^2) / N
 var
 sd <- sqrt(var)
 sd
+
+## Consider the frequency distribution of the number of orders received each day
+## during the past 50 days at the office of a mail-order company. Compute the
+## group sample means and standard deviations for the number of orders received
+## each day.
+
+orders <- c("10-12", "13-15", "16-18", "19-21")
+m <- c(11, 14, 17, 20)
+days <- c(4, 12, 20, 14)
+
+n <- sum(days)
+xbar <- sum(m * days) / n
+xbar
+
+var <- sum(days * (m - xbar)^2) / (n - 1)
+var
+sd <- sqrt(var)
+sd
+
+## Consider the frequency distribution of the daily commuting times (in minutes)
+## from home to work for all 25 employees of a company. Compute the population
+## group mean and standard deviation for this grouped data.
+
+
+m <- c(5, 15, 25, 35, 45)
+f <- c(4, 9, 6, 4, 2)
+
+N <- sum(f)
+mu <- sum(f * m) / N
+mu
+var <- sum(f * (m - mu)^2) / N
+var
+sd <- sqrt(var)
+sd
+
+
 
