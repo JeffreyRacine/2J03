@@ -101,7 +101,7 @@ getmode <- function(v) {
 commute.mode <- getmode(commute)
 commute.mode
 
-## Compute the mode for qualititative (yes, we can use the same function we
+## Compute the mode for qualitative (yes, we can use the same function we
 ## wrote for both data types). The status of five students who are members of
 ## the student senate at a college is given below.
 
