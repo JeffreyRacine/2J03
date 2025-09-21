@@ -101,6 +101,14 @@ getmode <- function(v) {
 commute.mode <- getmode(commute)
 commute.mode
 
+## Compute the mode for qualititative (yes, we can use the same function we
+## wrote for both data types). The status of five students who are members of
+## the student senate at a college is given below.
+
+class <- c("senior", "sophomore", "senior", "junior", "senior")
+class.mode <- getmode(class)
+class.mode
+
 ## Consider the compensation of 11 female CEOs of US companies in millions of
 ## dollars for 2014.
 
