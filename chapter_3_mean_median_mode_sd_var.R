@@ -191,7 +191,6 @@ sd
 ## from home to work for all 25 employees of a company. Compute the population
 ## group mean and standard deviation for this grouped data.
 
-
 m <- c(5, 15, 25, 35, 45)
 f <- c(4, 9, 6, 4, 2)
 
@@ -202,6 +201,3 @@ var <- sum(f * (m - mu)^2) / N
 var
 sd <- sqrt(var)
 sd
-
-
-
