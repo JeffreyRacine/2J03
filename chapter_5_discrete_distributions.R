@@ -18,8 +18,8 @@ x * P
 sum(x * P)
 
 ## Let X denote the number of defective computer parts in a shipment of 400
-## parts. Let x denote the possible values of X and P(x) the corresponding
-## probabilities.
+## parts made by Baier’s Electronics. Let x denote the possible values of X and
+## P(x) the corresponding probabilities.
 
 x <- c(0, 1, 2, 3, 4, 5)
 p <- c(0.02, 0.20, 0.30, 0.30, 0.10, 0.08)
