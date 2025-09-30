@@ -8,6 +8,13 @@ P <- c(0.15, 0.20, 0.35, 0.30)
 ## Compute the mean of X by adding all possible outcomes weighted by their
 ## probabilities.
 
+## First, note that x * P produces a vector of the products of the elements of x
+## and P.
+
+x * P
+
+## Now compute the mean by summing these products.
+
 sum(x * P)
 
 ## Let X denote the number of defective computer parts in a shipment of 400
