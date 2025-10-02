@@ -24,14 +24,24 @@ sum(x * P)
 x <- c(0, 1, 2, 3, 4, 5)
 p <- c(0.02, 0.20, 0.30, 0.30, 0.10, 0.08)
 
-## Compute the mean and standard deviation of X using the formulas for the mean
-## and standard deviation of a discrete random variable. In order to compute the
-## standard deviation we first need to compute the variance.
+## Compute the mean and standard deviation of X using the squared deviations
+## about the mean formulas for the mean and standard deviation of a discrete
+## random variable. In order to compute the standard deviation we first need to
+## compute the variance.
 
 mean_x <- sum(x * p)
 var_x <- sum((x - mean_x)^2 * p)
 sd_x <- sqrt(var_x)
 mean_x
+sd_x
+
+## Note we can write the variance as E(X^2) - (E(X))^2. We can compute E(X^2) as
+## follows.
+
+E_x2 <- sum(x^2 * p)
+var_x <- E_x2 - mean_x^2
+sd_x <- sqrt(var_x)
+var_x
 sd_x
 
 ## Below we consider the Binomial distribution, how to compute "n choose x" in
