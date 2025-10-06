@@ -38,8 +38,8 @@ sd_x
 ## Note we can write the variance as E(X^2) - (E(X))^2. We can compute E(X^2) as
 ## follows.
 
-E_x2 <- sum(x^2 * p)
-var_x <- E_x2 - mean_x^2
+E_x_sq <- sum(x^2 * p)
+var_x <- E_x_sq - mean_x^2
 sd_x <- sqrt(var_x)
 var_x
 sd_x
