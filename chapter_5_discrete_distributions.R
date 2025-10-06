@@ -75,3 +75,34 @@ p_x
 
 ## Confirm that you can obtain identical results using the online tables that
 ## will be available during mid-term exam 2 and the final exam.
+
+## Toss 1 coin 5 times in a row.  Note the number of tails.  What’s the
+## probability of 3 tails?
+
+n <- 5
+x <- 3
+pi <- 0.5
+p_x <- dbinom(x, size = n, prob = pi)
+p_x
+
+## Seventy five percent of students at a college with a large student population
+## use the social media site Instagram. Three students are randomly selected
+## from this college. What is the probability that exactly two of these three
+## students use Instagram?
+
+n <- 3
+x <- 2
+pi <- 0.75
+
+## Using dbinom function
+
+p_x <- dbinom(x, size = n, prob = pi)
+p_x
+
+## Using the formula for the binomial distribution
+
+p_x <- choose(n, x) * pi^x * (1 - pi)^(n - x)
+p_x
+
+  
+
