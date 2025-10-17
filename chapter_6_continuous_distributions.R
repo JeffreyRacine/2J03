@@ -37,3 +37,30 @@ axis(1, at = 1:11, labels = C, las = 2)
 lines(density(rep(1:11, times = f),bw=0.5), col = "blue", lwd = 2)
 # Add a legend
 legend("topright", legend = "Density Estimate", col = "blue", lwd = 2,bty="n")
+
+## For this data and using the density estimate, compute the probability that the height of a randomly selected female student from this university, X, lies in the interval 65 to 68 inches (i.e., P(65 ≤ X ≤ 68)).
+# Calculate the probability P(65 ≤ X ≤ 68)
+# The classes corresponding to 65 to 68 inches are 6 to 9
+prob_65_68 <- sum(rf[6:9])
+prob_65_68
+# Output: 0.432
+## Plot the density estimate then shade the area corresponding to this probability.
+# Create the histogram again
+par(cex=.75, mar=c(8,4,4,2)+0.1)
+hist(rep(1:11, times = f),
+     breaks = seq(0.5, 11.5, by = 1),
+     freq = FALSE,
+     xlab = "Height Classes",
+     ylab = "Density",
+     main = "Probability Density Histogram of Female Student Heights with Shaded Area",
+     xaxt = "n")
+axis(1, at = 1:11, labels = C, las = 2)
+# Superimpose the density estimate
+density_est <- density(rep(1:11, times = f),bw=0.5)
+lines(density_est, col = "blue", lwd = 2)
+# Shade the area corresponding to P(65 ≤ X ≤ 68)
+x_shade <- seq(5.5, 8.5, length.out = 100)
+y_shade <- approx(density_est$x, density_est$y, xout = x_shade)$y
+polygon(c(x_shade, rev(x_shade)), c(y_shade, rep(0, length(y_shade))), col = rgb(0, 0, 1, 0.5))
+# Add a legend and add the probability value
+legend("topright", legend = paste("P(65 ≤ X ≤ 68) =", round(prob_65_68, 3)), col = "blue", lwd = 2,bty="n")
