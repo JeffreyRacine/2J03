@@ -23,7 +23,8 @@ rf <- c(0.018, 0.034, 0.092, 0.150, 0.194,
 # Create a data frame
 height_data <- data.frame(Class = C, Frequency = f, Relative_Frequency = rf)
 height_data
-# Create the histogram
+# Create the histogram, make plot less taller than normal
+par(cex=.75, mar=c(8,4,4,2)+0.1)
 hist(rep(1:11, times = f),
      breaks = seq(0.5, 11.5, by = 1),
      freq = FALSE,
