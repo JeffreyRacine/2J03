@@ -1,7 +1,8 @@
 ## Suppose 5000 female students are enrolled at a university, and X is the
-## continuous random variable that represents the height of a randomly selected
-## female student. Note that these are exact probabilities because we are
-## considering the population of all female students enrolled at the university.
+## continuous random variable that represents the height in inches of a randomly
+## selected female student. Note that these are exact probabilities because we
+## are considering the population of all female students enrolled at the
+## university.
 
 # Height Classes
 
@@ -18,7 +19,8 @@ f <- c(90, 170, 460, 750, 970,
 rf <- c(0.018, 0.034, 0.092, 0.150, 0.194, 
         0.152, 0.128, 0.088, 0.064, 0.044, 0.036)
 
-## Create a probability density histogram for these data and then superimpose a density estimate on the histogram. Use only the base R functions.
+## Create a probability density histogram for these data and then superimpose a
+## density estimate on the histogram. Use only the base R functions.
 
 # Create a data frame
 height_data <- data.frame(Class = C, Frequency = f, Relative_Frequency = rf)
@@ -38,12 +40,16 @@ lines(density(rep(1:11, times = f),bw=0.5), col = "blue", lwd = 2)
 # Add a legend
 legend("topright", legend = "Density Estimate", col = "blue", lwd = 2,bty="n")
 
-## For this data and using the density estimate, compute the probability that the height of a randomly selected female student from this university, X, lies in the interval 65 to 68 inches (i.e., P(65 ≤ X ≤ 68)).
-# Calculate the probability P(65 ≤ X ≤ 68)
-# The classes corresponding to 65 to 68 inches are 6 to 9
-prob_65_68 <- sum(rf[6:9])
+## For this data and using the density estimate, compute the probability that
+#the height of a randomly selected female student from this university, X, lies
+#in the interval 65 to 68 inches (i.e., P(65 ≤ X ≤ 68)). There are 11 classes,
+#and the classes corresponding to 65 to 68 inches are 6 to 8. Here we could
+#approximate the area by taking the sum of the relative frequencies for classes
+#6, 7, and 8, which represents the areas of the bars in the histogram for these
+#classes.
+prob_65_68 <- sum(rf[6:8])
 prob_65_68
-# Output: 0.432
+# Output: 0.368=0.152+0.128+0.088
 ## Plot the density estimate then shade the area corresponding to this probability.
 # Create the histogram again
 par(cex=.75, mar=c(8,4,4,2)+0.1)
@@ -64,3 +70,4 @@ y_shade <- approx(density_est$x, density_est$y, xout = x_shade)$y
 polygon(c(x_shade, rev(x_shade)), c(y_shade, rep(0, length(y_shade))), col = rgb(0, 0, 1, 0.5))
 # Add a legend and add the probability value
 legend("topright", legend = paste("P(65 ≤ X ≤ 68) =", round(prob_65_68, 3)), col = "blue", lwd = 2,bty="n")
+
