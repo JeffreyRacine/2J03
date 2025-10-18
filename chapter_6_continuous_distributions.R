@@ -71,3 +71,17 @@ polygon(c(x_shade, rev(x_shade)), c(y_shade, rep(0, length(y_shade))), col = rgb
 # Add a legend and add the probability value
 legend("topright", legend = paste("P(65 ≤ X ≤ 68) =", round(prob_65_68, 3)), col = "blue", lwd = 2,bty="n")
 
+# Now, use the density curve estimate to approximate the probability that the
+# height of a randomly selected female student from this university, X, lies
+# between 65 and 68 inches. The probability P(65 ≤ X ≤ 68) is approximated by
+# the area under the density curve from 65 to 68 inches. Use numerican
+# integration in R to compute this area. Define the density function based on
+# the density estimate
+density_function <- function(x) {
+  approx(density_est$x, density_est$y, xout = x)$y
+}
+# Compute the area under the curve from 5.5 to 8.5 (corresponding to 65 to 68
+# inches)
+area_65_68 <- integrate(density_function, lower = 5.5, upper = 8.5)$value
+area_65_68
+# Output: 0.368 approximately
