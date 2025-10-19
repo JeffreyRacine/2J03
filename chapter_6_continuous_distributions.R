@@ -151,3 +151,13 @@ z_right_tail_0.005 <- qnorm(1 - 0.005)
 # left tail is .05
 z_left_tail_0.05 <- qnorm(0.05)
 z_left_tail_0.05
+
+# It is known that the life of a calculator manufactured by Calculators
+# Corporation has a normal distribution with a mean of 54 months and a standard
+# deviation of 8 months. What should the warranty period be to replace a
+# malfunctioning calculator if the company does not want to replace more than 1%
+# of all the calculators sold?
+mean_life <- 54
+sd_life <- 8
+x_left_tail_0.01 <- qnorm(0.01, mean = mean_life, sd = sd_life)
+x_left_tail_0.01
