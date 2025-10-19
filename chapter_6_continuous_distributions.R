@@ -84,4 +84,34 @@ density_function <- function(x) {
 # inches)
 area_65_68 <- integrate(density_function, lower = 5.5, upper = 8.5)$value
 area_65_68
-# Output: 0.368 approximately
+# Output: 0.3707751
+
+# Find the area under the standard normal curve to the left of z = 1.95. Plot the standard normal curve and shade the area to the left of z = 1.95.
+
+# Define the standard normal density function
+std_normal_density <- function(z) {
+  return(dnorm(z))
+}
+
+# Compute the area to the left of z = 1.95 using numerical integration
+area_left_1.95 <- integrate(std_normal_density, lower = -Inf, upper = 1.95)$value
+area_left_1.95
+# Output: 0.9744
+# Plot the standard normal curve
+z_values <- seq(-4, 4, length.out = 1000)
+plot(z_values, std_normal_density(z_values), type = "l", lwd = 2,
+     main = "Standard Normal Curve with Shaded Area to the Left of z = 1.95",
+     xlab = "z", ylab = "Density")
+# Shade the area to the left of z = 1.95
+z_shade <- seq(-4, 1.95, length.out = 100)
+y_shade <- std_normal_density(z_shade)
+polygon(c(z_shade, rev(z_shade)), c(y_shade, rep(0, length(y_shade))), col = rgb(0, 0, 1, 0.5))
+# Add a legend and the area value
+legend("topright", legend = paste("Area to the left of z = 1.95 =", round(area_left_1.95, 4)), col = "blue", lwd = 2,bty="n")
+
+# We could instead use the pnorm() function in R to find this area, which gives
+# the cumulative area from the far left up to the specified z-value. This is
+# what one would do in general. Or if you only had access to a standard normal
+# table, you could look up the area corresponding to z = 1.95.
+area_left_1.95_pnorm <- pnorm(1.95)
+area_left_1.95_pnorm
