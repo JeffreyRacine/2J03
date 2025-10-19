@@ -88,23 +88,18 @@ area_65_68
 
 # Find the area under the standard normal curve to the left of z = 1.95. Plot the standard normal curve and shade the area to the left of z = 1.95.
 
-# Define the standard normal density function
-std_normal_density <- function(z) {
-  return(dnorm(z))
-}
-
 # Compute the area to the left of z = 1.95 using numerical integration
-area_left_1.95 <- integrate(std_normal_density, lower = -Inf, upper = 1.95)$value
+area_left_1.95 <- integrate(dnorm, lower = -Inf, upper = 1.95)$value
 area_left_1.95
 # Output: 0.9744
 # Plot the standard normal curve
 z_values <- seq(-4, 4, length.out = 1000)
-plot(z_values, std_normal_density(z_values), type = "l", lwd = 2,
+plot(z_values, dnorm(z_values), type = "l", lwd = 2,
      main = "Standard Normal Curve with Shaded Area to the Left of z = 1.95",
      xlab = "z", ylab = "Density")
 # Shade the area to the left of z = 1.95
 z_shade <- seq(-4, 1.95, length.out = 100)
-y_shade <- std_normal_density(z_shade)
+y_shade <- dnorm(z_shade)
 polygon(c(z_shade, rev(z_shade)), c(y_shade, rep(0, length(y_shade))), col = rgb(0, 0, 1, 0.5))
 # Add a legend and the area value
 legend("topright", legend = paste("Area to the left of z = 1.95 =", round(area_left_1.95, 4)), col = "blue", lwd = 2,bty="n")
@@ -115,3 +110,35 @@ legend("topright", legend = paste("Area to the left of z = 1.95 =", round(area_l
 # table, you could look up the area corresponding to z = 1.95.
 area_left_1.95_pnorm <- pnorm(1.95)
 area_left_1.95_pnorm
+
+# Find the area under the standard normal curve from z = -2.17 to z = 0 using pnorm().
+area_neg2.17_to_0 <- pnorm(0) - pnorm(-2.17)
+area_neg2.17_to_0
+# Plot the standard normal curve and shade the area from z = -2.17 to z = 0.
+# Plot the standard normal curve
+plot(z_values, dnorm(z_values), type = "l", lwd = 2, 
+     main = "Standard Normal Curve with Shaded Area from z = -2.17 to z = 0",
+     xlab = "z", ylab = "Density")
+# Shade the area from z = -2.17 to z = 0
+z_shade <- seq(-2.17, 0, length.out = 100)
+y_shade <- dnorm(z_shade)
+polygon(c(z_shade, rev(z_shade)), c(y_shade, rep(0, length(y_shade))), col = rgb(0, 0, 1, 0.5))
+# Add a legend and the area value
+legend("topright", legend = paste("Area from z = -2.17 to z = 0 =", round(area_neg2.17_to_0, 4)), col = "blue", lwd = 2,bty="n")
+
+# Let X be a continuous random variable that is normally distributed with a mean
+# of 25 and a standard deviation of 4. Find the area between x = 18 and x = 34
+# using pnorm(), and then standardize the values and recompute the area using
+# pnorm().
+mean_X <- 25
+sd_X <- 4
+# Compute the area between x = 18 and x = 34 using pnorm()
+area_18_to_34 <- pnorm(34, mean = mean_X, sd = sd_X) - pnorm(18, mean = mean_X, sd = sd_X)
+area_18_to_34
+# Standardize the values
+z_18 <- (18 - mean_X) / sd_X
+z_34 <- (34 - mean_X) / sd_X
+# Recompute the area using pnorm()
+area_18_to_34_standardized <- pnorm(z_34) - pnorm(z_18)
+area_18_to_34_standardized
+
