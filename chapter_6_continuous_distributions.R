@@ -142,3 +142,12 @@ z_34 <- (34 - mean_X) / sd_X
 area_18_to_34_standardized <- pnorm(z_34) - pnorm(z_18)
 area_18_to_34_standardized
 
+# Find the value of z such that the area under the standard normal curve in the
+# right tail is .0050. This is known as a quantile, and in R we can use the
+# qnorm() function to find this value.
+z_right_tail_0.005 <- qnorm(1 - 0.005)
+
+# Find the value of z  such that the area under the standard normal curve in the
+# left tail is .05
+z_left_tail_0.05 <- qnorm(0.05)
+z_left_tail_0.05
