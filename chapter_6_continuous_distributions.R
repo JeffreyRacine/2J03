@@ -23,11 +23,6 @@ rf <- c(0.018, 0.034, 0.092, 0.150, 0.194,
 height_data <- data.frame(Class = C, Frequency = f, Relative_Frequency = rf)
 height_data
 
-# Create a markdown table of the height classes and their relative frequencies.
-library(knitr)
-kable(height_data, caption = "Height Classes and Relative Frequencies of
-Female Students")
-
 # Create a probability density histogram for these data and then superimpose a
 # density estimate on the histogram. Use only the base R functions.
 par(cex=.75, mar=c(8,4,4,2)+0.1)
