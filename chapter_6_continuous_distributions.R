@@ -1,11 +1,10 @@
-## Suppose 5000 female students are enrolled at a university, and X is the
-## continuous random variable that represents the height in inches of a randomly
-## selected female student. Note that these are exact probabilities because we
-## are considering the population of all female students enrolled at the
-## university.
+# Suppose 5000 female students are enrolled at a university, and X is the
+# continuous random variable that represents the height in inches of a randomly
+# selected female student. Note that these are exact probabilities because we
+# are considering the population of all female students enrolled at the
+# university.
 
 # Height Classes
-
 C <- c("60 to less than 61", "61 to less than 62", "62 to less than 63", 
        "63 to less than 64", "64 to less than 65", "65 to less than 66", 
        "66 to less than 67", "67 to less than 68", "68 to less than 69", 
@@ -19,13 +18,18 @@ f <- c(90, 170, 460, 750, 970,
 rf <- c(0.018, 0.034, 0.092, 0.150, 0.194, 
         0.152, 0.128, 0.088, 0.064, 0.044, 0.036)
 
-## Create a probability density histogram for these data and then superimpose a
-## density estimate on the histogram. Use only the base R functions.
-
-# Create a data frame
+# Create a data frame containing the height classes, frequencies, and relative
+# frequencies.
 height_data <- data.frame(Class = C, Frequency = f, Relative_Frequency = rf)
 height_data
-# Create the histogram, make plot less taller than normal
+
+# Create a markdown table of the height classes and their relative frequencies.
+library(knitr)
+kable(height_data, caption = "Height Classes and Relative Frequencies of
+Female Students")
+
+# Create a probability density histogram for these data and then superimpose a
+# density estimate on the histogram. Use only the base R functions.
 par(cex=.75, mar=c(8,4,4,2)+0.1)
 hist(rep(1:11, times = f),
      breaks = seq(0.5, 11.5, by = 1),
@@ -40,17 +44,18 @@ lines(density(rep(1:11, times = f),bw=0.5), col = "blue", lwd = 2)
 # Add a legend
 legend("topright", legend = "Density Estimate", col = "blue", lwd = 2,bty="n")
 
-## For this data and using the density estimate, compute the probability that
-#the height of a randomly selected female student from this university, X, lies
-#in the interval 65 to 68 inches (i.e., P(65 ≤ X ≤ 68)). There are 11 classes,
-#and the classes corresponding to 65 to 68 inches are 6 to 8. Here we could
-#approximate the area by taking the sum of the relative frequencies for classes
-#6, 7, and 8, which represents the areas of the bars in the histogram for these
-#classes.
+# For this data and using the density estimate, compute the probability that the
+# height of a randomly selected female student from this university, X, lies in
+# the interval 65 to 68 inches (i.e., P(65 ≤ X ≤ 68)). There are 11 classes, and
+# the classes corresponding to 65 to 68 inches are 6 to 8. Here we could
+# approximate the area by taking the sum of the relative frequencies for classes
+# 6, 7, and 8, which represents the areas of the bars in the histogram for these
+# classes.
 prob_65_68 <- sum(rf[6:8])
 prob_65_68
 # Output: 0.368=0.152+0.128+0.088
-## Plot the density estimate then shade the area corresponding to this probability.
+
+# Plot the density estimate then shade the area corresponding to this probability.
 # Create the histogram again
 par(cex=.75, mar=c(8,4,4,2)+0.1)
 hist(rep(1:11, times = f),
@@ -81,12 +86,13 @@ density_function <- function(x) {
   approx(density_est$x, density_est$y, xout = x)$y
 }
 # Compute the area under the curve from 5.5 to 8.5 (corresponding to 65 to 68
-# inches)
+# inches). This ought to be close to the previous probability value.
 area_65_68 <- integrate(density_function, lower = 5.5, upper = 8.5)$value
 area_65_68
 # Output: 0.3707751
 
-# Find the area under the standard normal curve to the left of z = 1.95. Plot the standard normal curve and shade the area to the left of z = 1.95.
+# Find the area under the standard normal curve to the left of z = 1.95. Plot
+# the standard normal curve and shade the area to the left of z = 1.95.
 
 # Compute the area to the left of z = 1.95 using numerical integration
 area_left_1.95 <- integrate(dnorm, lower = -Inf, upper = 1.95)$value
