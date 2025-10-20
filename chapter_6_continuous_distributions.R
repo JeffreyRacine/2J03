@@ -162,3 +162,4 @@ mean_life <- 54
 sd_life <- 8
 x_left_tail_0.01 <- qnorm(0.01, mean = mean_life, sd = sd_life)
 x_left_tail_0.01
+
