@@ -147,6 +147,7 @@ area_18_to_34_standardized
 # right tail is .0050. This is known as a quantile, and in R we can use the
 # qnorm() function to find this value.
 z_right_tail_0.005 <- qnorm(1 - 0.005)
+z_right_tail_0.005
 
 # Find the value of z  such that the area under the standard normal curve in the
 # left tail is .05
