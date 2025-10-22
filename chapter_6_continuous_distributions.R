@@ -164,3 +164,49 @@ sd_life <- 8
 x_left_tail_0.01 <- qnorm(0.01, mean = mean_life, sd = sd_life)
 x_left_tail_0.01
 
+# Example: According to an estimate, 50% of the people in the United States have
+# at least one credit card. If a random sample of 30 persons is selected, what
+# is the probability that 19 of them will have at least one credit card? Let’s
+# solve this using the normal approximation to the binomial. 
+
+# First, plot the true probabilities from the binomial distribution, then
+# overlay the normal density with mean and standard deviation take from the
+# binomial formulas.
+
+n <- 30
+p <- 0.50
+q <- 1 - p
+# Binomial mean and standard deviation
+mean_binom <- n * p
+sd_binom <- sqrt(n * p * q)
+# x values for the binomial distribution
+x_binom <- 0:n
+# Binomial probabilities
+prob_binom <- dbinom(x_binom, size = n, prob = p)
+# Plot the binomial probabilities
+plot(x_binom,
+     prob_binom,
+     main = "Binomial Distribution (n=30, p=0.5) with Normal Approximation",
+     xlab = "Number of Persons with at least one Credit Card",
+     ylab = "Probability",
+     col = "lightblue",
+     type="h",
+     lwd=2)
+# Overlay the normal density
+y_normal <- dnorm(x_binom, mean = mean_binom, sd = sd_binom)
+lines(x_binom, y_normal, col = "red", lwd = 2)
+# Add a legend
+legend("topright", legend = c("Normal Approximation", "Binomial Probabilities"),
+       col = c("red", "lightblue"), lwd = 2, bty="n")
+
+# Now, add a polygon for the probability that exactly 19 persons have at least one
+# credit card using the normal approximation with continuity correction.
+x_polygon <- seq(18.5, 19.5, length.out = 100)
+y_polygon <- dnorm(x_polygon, mean = mean_binom, sd = sd_binom)
+polygon(c(x_polygon, rev(x_polygon)), c(y_polygon, rep(0, length(y_polygon))), col = rgb(1, 0, 0, 0.5))
+# Compute the probability using the normal approximation with continuity correction
+prob_19_normal_approx <- pnorm(19.5, mean = mean_binom, sd = sd_binom) - pnorm(18.5, mean = mean_binom, sd = sd_binom)
+prob_19_normal_approx
+# Compute the exact binomial probability for comparison
+prob_19_binom <- dbinom(19, size = n, prob = p)
+prob_19_binom
