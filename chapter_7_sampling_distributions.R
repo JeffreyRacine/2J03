@@ -29,7 +29,7 @@ print(score_table)
 # Central limit theorem illustration
 
 set.seed(42)
-par(mfrow=c(3,2))
+par(mfrow=c(4,2))
 n <- 100
 mean.vec <- numeric()
 
@@ -50,7 +50,7 @@ hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
 legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
 
-n <- 15
+n <- 16
 for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
 mean.vec <- sort(mean.vec)
 
@@ -63,7 +63,7 @@ hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
 legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
 
-n <- 80
+n <- 32
 for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
 mean.vec <- sort(mean.vec)
 
@@ -75,3 +75,17 @@ lines(x,dchisq(x,df=df),lwd=2)
 hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample Mean",sub=paste("n =",n))
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
 legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
+
+n <- 64
+for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
+mean.vec <- sort(mean.vec)
+
+## Generate a histogram density for the raw data X
+hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Density of raw data",xlab="X")
+## Plot the true PDF
+lines(x,dchisq(x,df=df),lwd=2)
+## Now plot the histogram density and normal density of the 100,000 sample means
+hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample Mean",sub=paste("n =",n))
+lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
+legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
+
