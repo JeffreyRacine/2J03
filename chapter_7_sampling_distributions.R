@@ -42,50 +42,50 @@ for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
 mean.vec <- sort(mean.vec)
 
 ## Generate a histogram density for the raw data X
-hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Density of raw data",xlab="X")
+hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Distribution of the data",xlab="X")
 ## Plot the true PDF
 lines(x,dchisq(x,df=df),lwd=2)
 ## Now plot the histogram density and normal density of the 100,000 sample means
-hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample Mean",sub=paste("n =",n))
+hist(mean.vec,prob=TRUE,breaks=50,main=paste("Distribution of the sample mean; n =",n),xlab="Sample Mean")
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
-legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
+legend("topright",c("Sample Mean Distribution","Normal Distribution"),lwd=2,bty="n")
 
-n <- 16
+n <- 15
 for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
 mean.vec <- sort(mean.vec)
 
 ## Generate a histogram density for the raw data X
-hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Density of raw data",xlab="X")
+hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Distribution of the data",xlab="X")
 ## Plot the true PDF
 lines(x,dchisq(x,df=df),lwd=2)
 ## Now plot the histogram density and normal density of the 100,000 sample means
-hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample Mean",sub=paste("n =",n))
+hist(mean.vec,prob=TRUE,breaks=50,main=paste("Distribution of the sample mean; n =",n),xlab="Sample Mean")
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
-legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
+legend("topright",c("Sample Mean Distribution","Normal Distribution"),lwd=2,bty="n")
 
-n <- 32
+n <- 30
 for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
 mean.vec <- sort(mean.vec)
 
 ## Generate a histogram density for the raw data X
-hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Density of raw data",xlab="X")
+hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Distribution of the data",xlab="X")
 ## Plot the true PDF
 lines(x,dchisq(x,df=df),lwd=2)
 ## Now plot the histogram density and normal density of the 100,000 sample means
-hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample Mean",sub=paste("n =",n))
+hist(mean.vec,prob=TRUE,breaks=50,main=paste("Distribution of the sample mean; n =",n),xlab="Sample Mean")
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
-legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
+legend("topright",c("Sample Mean Distribution","Normal Distribution"),lwd=2,bty="n")
 
-n <- 64
+n <- 80
 for(i in 1:100000) mean.vec[i] <- mean(rchisq(n,df=df))
 mean.vec <- sort(mean.vec)
 
 ## Generate a histogram density for the raw data X
-hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Density of raw data",xlab="X")
+hist(x <- sort(rchisq(100000,df=df)),breaks=50,prob=TRUE,main="Distribution of the data",xlab="X")
 ## Plot the true PDF
 lines(x,dchisq(x,df=df),lwd=2)
 ## Now plot the histogram density and normal density of the 100,000 sample means
-hist(mean.vec,prob=TRUE,breaks=50,main="Density of the sample mean",xlab="Sample Mean",sub=paste("n =",n))
+hist(mean.vec,prob=TRUE,breaks=50,main=paste("Distribution of the sample mean; n =",n),xlab="Sample Mean")
 lines(mean.vec,dnorm(mean.vec,mean(mean.vec),sd(mean.vec)),lwd=2)
-legend("topright",c("Sample Mean Density","Normal Density"),lwd=2,bty="n")
+legend("topright",c("Sample Mean Distribution","Normal Distribution"),lwd=2,bty="n")
 
