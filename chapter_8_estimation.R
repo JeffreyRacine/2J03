@@ -100,3 +100,26 @@ n <- (z_alpha_over_2 * sigma / E)^2
 n <- ceiling(n)  # Round up to the next whole number
 # Output the required sample size
 n
+
+# Example: Sixty-four randomly selected adults who buy books for general reading
+# were asked how much they usually spend on books per year. The sample produced
+# a mean of $1,450 and a standard deviation of $300 for such annual expenses.
+# Determine a 99% confidence interval for the corresponding population mean.
+
+# Given data
+n <- 64                # Sample size
+x_bar <- 1450         # Sample mean
+s <- 300              # Sample standard deviation
+confidence_level <- 0.99  # Confidence level
+alpha <- 1 - confidence_level  # Significance level
+t_alpha_over_2 <- qt(1 - alpha / 2, df = n - 1)  # T critical value
+# Standard error
+standard_error <- s / sqrt(n)
+# Margin of error
+margin_of_error <- t_alpha_over_2 * standard_error
+# Confidence interval
+lower_bound <- x_bar - margin_of_error
+upper_bound <- x_bar + margin_of_error
+confidence_interval <- c(lower_bound, upper_bound)
+# Output the confidence interval
+confidence_interval
