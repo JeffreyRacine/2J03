@@ -123,3 +123,23 @@ upper_bound <- x_bar + margin_of_error
 confidence_interval <- c(lower_bound, upper_bound)
 # Output the confidence interval
 confidence_interval
+
+## Example: Lombard Electronics Company has just installed a new machine that
+## makes a part that is used in clocks.The company wants to estimate the
+## proportion of these parts produced by this machine that are defective. The
+## company manager wants this estimate to be within 0.02 of the population
+## proportion for a 95% confidence level. What is the most conservative estimate
+## of the sample size that will limit the maximum error to within 0.02 of the
+## population proportion (i.e., the largest possible sample required)?
+
+# Given data
+E <- 0.02             # Margin of error
+confidence_level <- 0.95  # Confidence level
+alpha <- 1 - confidence_level  # Significance level
+z_alpha_over_2 <- qnorm(1 - alpha / 2)  # Z critical value
+# Sample size calculation (most conservative estimate with p_hat = 0.5)
+n <- (z_alpha_over_2^2 * 0.5 * (1 - 0.5)) / (E^2)
+n <- ceiling(n)  # Round up to the next whole number
+# Output the required sample size
+n
+  
